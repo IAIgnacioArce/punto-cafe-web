@@ -19,7 +19,7 @@
 
     <section class="hero">
         <video autoplay muted loop playsinline class="hero-video">
-            <source src="https://cdn.pixabay.com/video/2020/02/24/32886-394541998_large.mp4" type="video/mp4">
+            <source src="assets/hero-barista.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -34,10 +34,10 @@
                 <h2>Nuestra Promesa</h2>
             </div>
             <p class="cita">"Porque no importa cuándo, ni con quién: siempre mereces tomar un café de calidad."</p>
-            <p class="descripcion">Nostros nos encargamos de eso.</p>
+            <p class="descripcion">Este bloque rompe la estructura de la página con una imagen de gran tamaño a la derecha, creando un respiro visual emocional.</p>
         </div>
         <div class="promesa-imagen">
-            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1000&auto=format&fit=crop" alt="Bandeja de café premium">
+            <img src="assets/promesa-cafe.png" alt="Bandeja de café premium">
         </div>
     </section>
 
@@ -49,7 +49,7 @@
         <div class="grid-productos">
             <article class="tarjeta-producto oculto-scroll">
                 <div class="tarjeta-imagen">
-                    <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=600&auto=format&fit=crop" alt="Espresso Blend">
+                    <img src="assets/producto-espresso.png" alt="Espresso Blend">
                 </div>
                 <div class="producto-info">
                     <span class="etiqueta-tueste">INTENSO</span>
@@ -62,7 +62,7 @@
 
             <article class="tarjeta-producto oculto-scroll">
                 <div class="tarjeta-imagen">
-                    <img src="https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?q=80&w=600&auto=format&fit=crop" alt="Caturra Honey">
+                    <img src="assets/producto-caturra.png" alt="Caturra Honey">
                 </div>
                 <div class="producto-info">
                     <span class="etiqueta-tueste">MEDIO</span>
@@ -75,7 +75,7 @@
 
             <article class="tarjeta-producto oculto-scroll">
                 <div class="tarjeta-imagen">
-                    <img src="https://images.unsplash.com/photo-1587734195503-904fca47e0e9?q=80&w=600&auto=format&fit=crop" alt="Etiopía Guji">
+                    <img src="assets/producto-etiopia.png" alt="Etiopía Guji">
                 </div>
                 <div class="producto-info">
                     <span class="etiqueta-tueste">SUAVE</span>
@@ -87,6 +87,35 @@
             </article>
         </div>
     </section>
+
+    <section id="metodos" class="metodos-section oculto-scroll">
+        <div class="metodos-imagen">
+            <img src="assets/metodos-filtrado.png" alt="Preparando café filtrado">
+        </div>
+        <div class="metodos-texto">
+            <h2>Más que una Bebida,<br>un Ritual.</h2>
+            <p>En esta sección se mostrarán productos de cafeteras ya sea aeropress, tipo italiana, etc...</p>
+            <div class="botones-metodos">
+                <button class="btn-metodo">V60</button>
+                <button class="btn-metodo">CHEMEX</button>
+                <button class="btn-metodo">PRENSA</button>
+            </div>
+        </div>
+    </section>
+
+    <dialog id="modal-producto" class="modal-premium">
+        <div class="modal-grid">
+            <div class="modal-imagen-container">
+                <img src="assets/modal-default.png" alt="Café Seleccionado">
+            </div>
+            <div class="modal-info">
+                <h2>Café Seleccionado</h2>
+                <p class="modal-descripcion">Un café de especialidad con notas únicas, ideal para tu rutina diaria. Seleccionado cuidadosamente en origen.</p>
+                <a href="https://wa.me/5493510000000?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20hacer%20un%20pedido%20de%20café." target="_blank" class="btn-primary btn-whatsapp">Pedir por WhatsApp</a>
+                <button id="btn-cerrar-modal" class="btn-secundario btn-cerrar">Cerrar</button>
+            </div>
+        </div>
+    </dialog>
 
     <script src="script.js"></script>
 </body>

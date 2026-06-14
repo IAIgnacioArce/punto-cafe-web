@@ -1,26 +1,54 @@
-// Seleccionamos todos los elementos que queremos animar
+// =========================================
+// LÓGICA DEL SCROLL ANIMADO (FIJO AL BAJAR)
+// =========================================
 const elementosAnimables = document.querySelectorAll('.oculto-scroll');
 
-// Configuramos el "vigilante" (Observer)
-const observadorScroll = new IntersectionObserver((entradas) => {
+const observadorScroll = new IntersectionObserver((entradas, observador) => {
     entradas.forEach((entrada) => {
-        // Si el elemento entra en el área visible de la pantalla...
+        // Si el elemento entra en el área visible...
         if (entrada.isIntersecting) {
-            // Le agregamos la clase que hace la transición de CSS para mostrarlo
             entrada.target.classList.add('mostrar-scroll');
-        } else {
-            // ¡MAGIA ACTIVADA! 
-            // Si el elemento sale de la pantalla, le quitamos la clase.
-            // Así, cuando vuelva a entrar (al subir o bajar), la animación se repetirá.
-            entrada.target.classList.remove('mostrar-scroll');
+            // Dejamos de observar este elemento específico para que quede fijo para siempre
+            observador.unobserve(entrada.target);
         }
     });
 }, {
-    // La animación arranca cuando el 20% del elemento ya es visible
-    threshold: 0.2 
+    // Bajamos ligeramente el umbral a 0.15 para suavizar la detección en pantallas compactas
+    threshold: 0.15 
 });
 
-// Le asignamos el vigilante a cada elemento que encontramos
 elementosAnimables.forEach((elemento) => {
     observadorScroll.observe(elemento);
+});
+
+// =========================================
+// LÓGICA DE LA VENTANA MODAL
+// =========================================
+const modal = document.querySelector('#modal-producto');
+const botonesAbrir = document.querySelectorAll('.btn-abrir-modal');
+const botonCerrar = document.querySelector('#btn-cerrar-modal');
+
+botonesAbrir.forEach((boton) => {
+    boton.addEventListener('click', () => {
+        modal.showModal();
+        document.body.style.overflow = 'hidden'; 
+    });
+});
+
+botonCerrar.addEventListener('click', () => {
+    modal.close();
+    document.body.style.overflow = 'auto'; 
+});
+
+modal.addEventListener('click', (evento) => {
+    const dimensiones = modal.getBoundingClientRect();
+    if (
+        evento.clientX < dimensiones.left ||
+        evento.clientX > dimensiones.right ||
+        evento.clientY < dimensiones.top ||
+        evento.clientY > dimensiones.bottom
+    ) {
+        modal.close();
+        document.body.style.overflow = 'auto';
+    }
 });

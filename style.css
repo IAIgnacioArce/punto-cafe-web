@@ -4,7 +4,7 @@
 :root {
     --bg-main: #4A3B32;       
     --bg-surface: #FFFFFF;    
-    --bg-tarjeta: #FDFBF7;    /* El blanco hueso de las tarjetas de café */
+    --bg-tarjeta: #FDFBF7;    
     --text-light: #F4F4F5;    
     --text-dark: #18181B;     
     --font-main: 'Montserrat', sans-serif;
@@ -135,6 +135,7 @@ a {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .btn-primary:hover {
@@ -219,7 +220,6 @@ a {
 
 .grid-productos {
     display: grid;
-    /* Esto hace que las columnas se adapten solas al tamaño de pantalla */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     margin-top: 3rem;
@@ -235,7 +235,6 @@ a {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efecto premium al pasar el mouse por la tarjeta */
 .tarjeta-producto:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
@@ -249,7 +248,6 @@ a {
     margin-bottom: 1.5rem;
 }
 
-/* La etiqueta de tueste estilo píldora oscura */
 .etiqueta-tueste {
     background-color: var(--text-dark);
     color: var(--bg-surface);
@@ -271,7 +269,7 @@ a {
 
 .producto-info .notas {
     font-size: 0.9rem;
-    color: #52525B; /* Un gris oscuro para que no compita con el título */
+    color: #52525B;
     margin-bottom: 1rem;
 }
 
@@ -300,7 +298,136 @@ a {
     color: var(--bg-surface);
 }
 
-/* RESPONSIVE PARA MÓVILES */
+/* =========================================
+   FASE 4: MÉTODOS DE FILTRADO Y MODAL
+   ========================================= */
+.metodos-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    padding: 8rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 10rem;
+}
+
+.metodos-imagen {
+    flex: 1;
+    max-width: 450px;
+}
+
+/* Imagen circular */
+.metodos-imagen img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%; /* Esto hace el círculo perfecto */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.metodos-texto {
+    flex: 1;
+    max-width: 500px;
+}
+
+.metodos-texto h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.metodos-texto p {
+    color: #D4D4D8;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.botones-metodos {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-metodo {
+    background: transparent;
+    border: 1px solid var(--text-light);
+    color: var(--text-light);
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-metodo:hover {
+    background: var(--text-light);
+    color: var(--bg-main);
+}
+
+/* --- ESTILOS DE LA VENTANA MODAL --- */
+dialog::backdrop {
+    background-color: rgba(74, 59, 50, 0.85); /* Tono marrón acorde al fondo general */
+    backdrop-filter: blur(8px);
+}
+
+.modal-premium {
+    margin: auto;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--bg-surface);
+    color: var(--text-dark);
+    width: 90%;
+    max-width: 800px;
+    padding: 0;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    overflow: hidden; 
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.modal-imagen-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-info {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.modal-descripcion {
+    color: #52525B;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.btn-whatsapp {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.btn-cerrar {
+    margin-top: 0.5rem;
+}
+
+/* RESPONSIVE FASE 4 Y GENERAL */
 @media (max-width: 768px) {
     .promesa-section {
         flex-direction: column;
@@ -309,6 +436,24 @@ a {
     }
     
     .nav-links {
-        display: none; /* En mobile ocultamos los links temporalmente (podemos agregar menú hamburguesa luego) */
+        display: none;
+    }
+
+    .metodos-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+    
+    .botones-metodos {
+        justify-content: center;
+    }
+    
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-imagen-container img {
+        height: 250px;
     }
 }
