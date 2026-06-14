@@ -1,0 +1,144 @@
+/* =========================================
+   VARIABLES DE COLOR Y DISEÑO
+   ========================================= */
+:root {
+    --bg-main: #4A3B32;       /* El marrón oscuro de fondo de tu diseño */
+    --bg-surface: #FFFFFF;    /* Blanco para la navbar y tarjetas */
+    --text-light: #F4F4F5;    /* Texto claro para leer sobre el fondo oscuro */
+    --text-dark: #18181B;     /* Texto oscuro para la navbar */
+    --font-main: 'Montserrat', sans-serif;
+}
+
+/* =========================================
+   RESET GENERAL
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================
+   NAVBAR (PÍLDORA FLOTANTE)
+   ========================================= */
+.navbar {
+    background-color: var(--bg-surface);
+    color: var(--text-dark);
+    /* Diseño píldora */
+    border-radius: 50px;
+    padding: 1rem 2.5rem;
+    width: 90%;
+    max-width: 1000px;
+    
+    /* Posicionamiento flotante */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding-left: 5%; /* Alineación a la izquierda como en tu diseño */
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(74, 59, 50, 0.95) 10%, rgba(74, 59, 50, 0.4) 100%);
+    z-index: -1;
+}
+
+.hero-content {
+    z-index: 1;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--bg-surface);
+    color: var(--text-dark);
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px; /* Botón curvo para seguir la línea de la navbar */
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
