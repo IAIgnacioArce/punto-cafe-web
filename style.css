@@ -2,10 +2,11 @@
    VARIABLES DE COLOR Y DISEÑO
    ========================================= */
 :root {
-    --bg-main: #4A3B32;       /* El marrón oscuro de fondo de tu diseño */
-    --bg-surface: #FFFFFF;    /* Blanco para la navbar y tarjetas */
-    --text-light: #F4F4F5;    /* Texto claro para leer sobre el fondo oscuro */
-    --text-dark: #18181B;     /* Texto oscuro para la navbar */
+    --bg-main: #4A3B32;       
+    --bg-surface: #FFFFFF;    
+    --bg-tarjeta: #FDFBF7;    /* El blanco hueso de las tarjetas de café */
+    --text-light: #F4F4F5;    
+    --text-dark: #18181B;     
     --font-main: 'Montserrat', sans-serif;
 }
 
@@ -207,11 +208,107 @@ a {
     transform: translateY(0);
 }
 
+/* =========================================
+   FASE 3: NUESTROS CAFÉS (GRILLA)
+   ========================================= */
+.productos-section {
+    padding: 5rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.grid-productos {
+    display: grid;
+    /* Esto hace que las columnas se adapten solas al tamaño de pantalla */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.tarjeta-producto {
+    background-color: var(--bg-tarjeta);
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: var(--text-dark);
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto premium al pasar el mouse por la tarjeta */
+.tarjeta-producto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.tarjeta-imagen img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+/* La etiqueta de tueste estilo píldora oscura */
+.etiqueta-tueste {
+    background-color: var(--text-dark);
+    color: var(--bg-surface);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.producto-info h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.producto-info .notas {
+    font-size: 0.9rem;
+    color: #52525B; /* Un gris oscuro para que no compita con el título */
+    margin-bottom: 1rem;
+}
+
+.producto-info .precio {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.btn-secundario {
+    background: transparent;
+    border: 2px solid var(--text-dark);
+    color: var(--text-dark);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.btn-secundario:hover {
+    background: var(--text-dark);
+    color: var(--bg-surface);
+}
+
 /* RESPONSIVE PARA MÓVILES */
 @media (max-width: 768px) {
     .promesa-section {
         flex-direction: column;
         padding: 5rem 5%;
         text-align: left;
+    }
+    
+    .nav-links {
+        display: none; /* En mobile ocultamos los links temporalmente (podemos agregar menú hamburguesa luego) */
     }
 }
